@@ -6,5 +6,20 @@ module.exports = {
     title: `GSoC 2023 Qualification Task`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `training-modules`,
+        path: `${__dirname}/`,
+      },
+    },
+  ],
 }

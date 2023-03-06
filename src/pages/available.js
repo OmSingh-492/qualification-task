@@ -3,9 +3,9 @@ import {Link, graphql} from 'gatsby'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 
-const TrainingWebsite = ({data}) => {
+const AvailableModules = ({data}) => {
     return (
-    <Layout pageTitle='All Training Modules'>
+    <Layout pageTitle='Available Training Modules'>
       <ol>
         {data.allTrainingModulesYaml.edges.map(entry => {
           return (
@@ -34,7 +34,7 @@ const TrainingWebsite = ({data}) => {
 
 export const query = graphql`
 query {
-  allTrainingModulesYaml {
+  allTrainingModulesYaml(filter: {videos: {ne: ""}}) {
     edges {
       node {
         description
@@ -49,5 +49,5 @@ query {
 }
 `
 
-export const Head=() => <Seo title='All Training Modules'/>
-export default TrainingWebsite
+export const Head=() => <Seo title='Available Training Modules'/>
+export default AvailableModules
